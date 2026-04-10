@@ -1,0 +1,70 @@
+CSE 111 Proposal for a Student Chosen Program
+
+    (This is a proposal. All proposals are written with our best
+    knowledge at the beginning of a project. As we progress from the
+    beginning to the end of a project, we gain more knowledge, and we
+    change some of our proposed ideas. This is part of completing any
+    project and is fine.  However, we still must write a proposal so
+    that our teachers or supervisors know what we intend to do. Please
+    answer each of the following questions to the best of your
+    knowledge.)
+
+1. What is the title of your program?
+   Grocery Budget Helper
+
+2. What real-world problem will your program address or help to solve?
+   When grocery shopping, different stores have different prices for the
+   same items. I often wonder whether I should go to Store A or Store B
+   for my weekly shopping list, but I don't want to manually compare
+   twenty prices with a calculator. This program will solve that problem
+   by reading price data from simple CSV files (which represent different
+   stores) and telling the user which store is cheaper overall for their
+   specific shopping list. It helps a person save money without spending
+   an hour doing math.
+
+3. What will you learn from developing this program?
+   I will learn how to read data from an external CSV file and convert it
+   into a usable data structure (a dictionary) inside Python. I will also
+   practice writing reusable functions that accept parameters and return
+   values, which is a core concept of CSE 111. Additionally, I will learn
+   how to structure a program that compares two sets of data and produces
+   a meaningful summary. This goes beyond previous class assignments
+   because earlier assignments mostly used hard-coded data or user input,
+   whereas this project reads persistent data from a file.
+
+4. What Python modules will your program use?
+   - csv (to read the store price files)
+
+5. List the names of functions you will need?
+   (Remember that the most reusable functions don't get user input and
+   don't print results but instead have parameters and return a result.)
+
+   - load_prices(filename)
+     Parameters: a string representing the CSV file path.
+     Returns: a dictionary where keys are item names (string) and values
+     are prices (float).
+     Example: {"milk": 3.99, "bread": 2.50, "eggs": 4.25}
+
+   - compare_item_price(store_a_prices, store_b_prices, item_name)
+     Parameters: two dictionaries (from load_prices) and a string.
+     Returns: a string indicating which store is cheaper, or "same price",
+     or "item not found".
+
+   - calculate_list_total(store_prices, shopping_list)
+     Parameters: a dictionary (store prices) and a list of strings (items).
+     Returns: a float representing the total cost of the shopping list
+     at that store.
+
+   - find_cheaper_store(store_a_prices, store_b_prices, shopping_list)
+     Parameters: two dictionaries and a list of strings.
+     Returns: a dictionary with keys "store_a_total", "store_b_total",
+     "cheaper_store", and "savings".
+
+6. List the names of the test functions you will write.
+   - test_load_prices_returns_correct_dictionary()
+   - test_load_prices_handles_missing_file()
+   - test_compare_item_price_store_a_cheaper()
+   - test_compare_item_price_item_not_found()
+   - test_calculate_list_total_with_empty_list()
+   - test_calculate_list_total_with_missing_item_ignores_item()
+   - test_find_cheaper_store_calculates_savings_correctly()
